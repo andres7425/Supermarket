@@ -46,115 +46,139 @@ $(".tablas").on("click", ".btnEditarPQRS", function () {
 
 	var idpqrs = $(this).attr("idPQRS");
 	var idusuario = $(this).attr("idUsuario");
+	var idcliente = $(this).attr("idCliente");
 
-	window.location = "index.php?ruta=editar-pqrs&idPQRS=" + idpqrs + "&idUsuario=" + idusuario;
-
-
-	})
+	window.location = "index.php?ruta=editar-pqrs&idPQRS=" + idpqrs + "&idUsuario=" + idusuario + "&idCliente=" + idcliente;
 
 
-	/*=============================================
-	BOTON ENVIAR CORREO
-	=============================================*/
+})
 
-	$(".tablas").on("click", ".btnEnviarCorreo", function () {
+/*=============================================
+IMPRIMIR RADICADO
+=============================================*/
 
-		var enviarPQRS = $(this).attr("enviarPQRS");
-		var enviarUsuario = $(this).attr("enviarUsuario");
-		var enviarCliente = $(this).attr("enviarCliente");
+$(".btnPDF").on("click", ".btnGeneral", function () {
 
-		window.location = "vendor/phpmailer/email.php?ruta=email&enviarPQRS=" + enviarPQRS + "&enviarUsuario=" + enviarUsuario + "&enviarCliente=" + enviarCliente;
+	window.open("vendor/tecnickcom/tcpdf/pdf/reportesgeneral.php", "_blank");
 
-	})
+})
+/*=============================================
+IMPRIMIR RADICADO
+=============================================*/
+
+$(".btnPDF").on("click", ".dropdown-item", function () {
+
+	var tipoRadicado = $(this).attr("tipoRadicado");
+	var estadoRadicado = $(this).attr("estadoRadicado");
+
+	window.open("vendor/tecnickcom/tcpdf/pdf/reportes.php?tipoRadicado=" + tipoRadicado + "&estadoRadicado=" + estadoRadicado, "_blank");
+
+})
 
 
-	/*=============================================
-	BOTON RANGO DE VENTA
-	=============================================*/
-	$('#daterange-btn').daterangepicker(
-		{
-			ranges: {
-				'Hoy': [moment(), moment()],
-				'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-				'Últimos 7 días': [moment().subtract(6, 'days'), moment()],
-				'Últimos 30 días': [moment().subtract(29, 'days'), moment()],
-				'Este mes': [moment().startOf('month'), moment().endOf('month')],
-				'Último mes': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-			},
-			startDate: moment(),
-			endDate: moment()
+
+/*=============================================
+BOTON ENVIAR CORREO
+=============================================*/
+
+$(".tablas").on("click", ".btnEnviarCorreo", function () {
+
+	var enviarPQRS = $(this).attr("enviarPQRS");
+	var enviarUsuario = $(this).attr("enviarUsuario");
+	var enviarCliente = $(this).attr("enviarCliente");
+
+	window.location = "vendor/phpmailer/email.php?ruta=email&enviarPQRS=" + enviarPQRS + "&enviarUsuario=" + enviarUsuario + "&enviarCliente=" + enviarCliente;
+
+})
+
+
+/*=============================================
+BOTON RANGO DE PQRS
+=============================================*/
+$('#daterange-btn').daterangepicker(
+	{
+		ranges: {
+			'Hoy': [moment(), moment()],
+			'Ayer': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+			'Últimos 7 días': [moment().subtract(6, 'days'), moment()],
+			'Últimos 30 días': [moment().subtract(29, 'days'), moment()],
+			'Este mes': [moment().startOf('month'), moment().endOf('month')],
+			'Último mes': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
 		},
-		function (start, end) {
-			$('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+		startDate: moment(),
+		endDate: moment()
+	},
+	function (start, end) {
+		$('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
 
-			var fechaInicial = start.format('YYYY-MM-DD');
+		var fechaInicial = start.format('YYYY-MM-DD');
 
-			var fechaFinal = end.format('YYYY-MM-DD');
+		var fechaFinal = end.format('YYYY-MM-DD');
 
-			var capturarRango = $("#daterange-btn span").html();
+		var capturarRango = $("#daterange-btn span").html();
 
-			localStorage.setItem("capturarRango", capturarRango);
+		localStorage.setItem("capturarRango", capturarRango);
 
-			window.location = "index.php?ruta=pqrs&fechaInicial=" + fechaInicial + "&fechaFinal=" + fechaFinal;
+		window.location = "index.php?ruta=pqrs&fechaInicial=" + fechaInicial + "&fechaFinal=" + fechaFinal;
 
-		}
+	}
 
-	)
+)
 
-	/*=============================================
-	CANCELAR RANGO DE FECHAS
-	=============================================*/
+/*=============================================
+CANCELAR RANGO DE FECHAS
+=============================================*/
 
-	$(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function () {
+$(".daterangepicker.opensleft .range_inputs .cancelBtn").on("click", function () {
 
-		localStorage.removeItem("capturarRango");
-		localStorage.clear();
-		window.location = "pqrs";
-	})
+	localStorage.removeItem("capturarRango");
+	localStorage.clear();
+	window.location = "pqrs";
+})
 
-	/*=============================================
-	CAPTURAR HOY
-	=============================================*/
+/*=============================================
+CAPTURAR HOY
+=============================================*/
 
-	$(".daterangepicker.opensleft .ranges li").on("click", function () {
+$(".daterangepicker.opensleft .ranges li").on("click", function () {
 
-		var textoHoy = $(this).attr("data-range-key");
+	var textoHoy = $(this).attr("data-range-key");
 
-		if (textoHoy == "Hoy") {
+	if (textoHoy == "Hoy") {
 
-			var d = new Date();
+		var d = new Date();
 
-			var dia = d.getDate();
-			var mes = d.getMonth() + 1;
-			var año = d.getFullYear();
+		var dia = d.getDate();
+		var mes = d.getMonth() + 1;
+		var año = d.getFullYear();
 
-			if (mes < 10) {
+		if (mes < 10) {
 
-				var fechaInicial = año + "-0" + mes + "-" + dia;
-				var fechaFinal = año + "-0" + mes + "-" + dia;
+			var fechaInicial = año + "-0" + mes + "-" + dia;
+			var fechaFinal = año + "-0" + mes + "-" + dia;
 
-			} else if (dia < 10) {
+		} else if (dia < 10) {
 
-				var fechaInicial = año + "-" + mes + "-0" + dia;
-				var fechaFinal = año + "-" + mes + "-0" + dia;
+			var fechaInicial = año + "-" + mes + "-0" + dia;
+			var fechaFinal = año + "-" + mes + "-0" + dia;
 
-			} else if (mes < 10 && dia < 10) {
+		} else if (mes < 10 && dia < 10) {
 
-				var fechaInicial = año + "-0" + mes + "-0" + dia;
-				var fechaFinal = año + "-0" + mes + "-0" + dia;
+			var fechaInicial = año + "-0" + mes + "-0" + dia;
+			var fechaFinal = año + "-0" + mes + "-0" + dia;
 
-			} else {
+		} else {
 
-				var fechaInicial = año + "-" + mes + "-" + dia;
-				var fechaFinal = año + "-" + mes + "-" + dia;
-
-			}
-
-			localStorage.setItem("capturarRango", "Hoy");
-
-			window.location = "index.php?ruta=pqrs&fechaInicial=" + fechaInicial + "&fechaFinal=" + fechaFinal;
+			var fechaInicial = año + "-" + mes + "-" + dia;
+			var fechaFinal = año + "-" + mes + "-" + dia;
 
 		}
 
-	})
+		localStorage.setItem("capturarRango", "Hoy");
+
+		window.location = "index.php?ruta=pqrs&fechaInicial=" + fechaInicial + "&fechaFinal=" + fechaFinal;
+
+	}
+
+})
 

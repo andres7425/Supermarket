@@ -3,7 +3,7 @@
 require_once "conexion.php";
 
 class ModeloPQRS
-{	
+{
 
 	/*=============================================
 	MOSTRAR PQRS
@@ -139,31 +139,6 @@ class ModeloPQRS
 			return $stmt->fetchAll();
 		}
 	}
-	/*=============================================
-	ELIMINAR PQRS
-	=============================================*/
-
-	static public function mdlEliminarPQRS($tabla, $datos)
-	{
-
-		$tabla = "radicado";
-
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");
-
-		$stmt->bindParam(":id", $datos, PDO::PARAM_INT);
-
-		if ($stmt->execute()) {
-
-			return "ok";
-		} else {
-
-			return "error";
-		}
-
-		$stmt->close();
-
-		$stmt = null;
-	}
 
 	/*=============================================
 	TOTAL RADICADOS JUSTIFICADOS
@@ -182,4 +157,23 @@ class ModeloPQRS
 
 		$stmt = null;
 	}
+
+	/*=============================================
+	RADICADOS PDF
+	=============================================*/
+
+	static public function mdlMostrarPQRSPDF($tipo, $estado) {
+
+
+		$stmt = Conexion::conectar()->prepare("SELECT * FROM radicado WHERE tipopqrs = 'Queja' ");
+
+		$stmt->execute();
+
+		return $stmt->fetch();
+
+		$stmt->close();
+
+		$stmt = null;
+	
+}
 }

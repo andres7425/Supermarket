@@ -27,8 +27,7 @@ class TablaClientes{
             "'.$clientes[$i]["nombre"].'",
             "'.$clientes[$i]["apellido"].'",
             "'.$clientes[$i]["correo"].'",
-            "'.$clientes[$i]["telefono"].'",
-            "'.$botones .'"
+            "'.$clientes[$i]["telefono"].'"
           ],';
         }
 

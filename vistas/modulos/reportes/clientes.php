@@ -3,13 +3,13 @@
 $item = null;
 $valor = null;
 
-$ventas = ControladorVentas::ctrMostrarVentas($item, $valor);
+$reportes = ControladorPQRS::ctrMostrarPQRS($item, $valor);
 $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
 
 $arrayClientes = array();
 $arraylistaClientes = array();
 
-foreach ($ventas as $key => $valueVentas) {
+foreach ($reportes as $key => $valueVentas) {
   
   foreach ($clientes as $key => $valueClientes) {
     

@@ -17,7 +17,6 @@
                                 <div class="row">
                                     <div class="col-sm-12">
                                         <div class="table-responsive">
-
                                             <table id="tablaClientes" class="table tablesorter  table-striped dt-responsive" width="100%">
                                                 <thead>
                                                     <tr role="row">
@@ -27,7 +26,6 @@
                                                         <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 151px;">Apellido</th>
                                                         <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 151px;">Correo</th>
                                                         <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 151px;">Telefono</th>
-                                                        <th class="sorting" tabindex="0" aria-controls="datatables" rowspan="1" colspan="1" style="width: 151px;">Acciones</th>
 
                                                     </tr>
                                                 </thead>
@@ -39,7 +37,7 @@
                                                         <th rowspan="1" colspan="1">Apellido</th>
                                                         <th rowspan="1" colspan="1">Correo</th>
                                                         <th rowspan="1" colspan="1">Telefono</th>
-                                                        <th rowspan="1" colspan="1">Acciones</th>
+                                                        
 
                                                         
                                                     </tr>
@@ -54,17 +52,9 @@
                             </div>
                         </div>
                     </div>
-                    </table>
                 </div>
             </div>
         </div>
     </div>
-
-    <?php
-
-    $eliminarCliente = new ControladorClientes();
-    $eliminarCliente->ctrEliminarCliente();
-
-    ?>
 
 </div> 

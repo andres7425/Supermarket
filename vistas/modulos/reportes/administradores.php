@@ -22,8 +22,8 @@ foreach ($radicados as $key => $valueReportes) {
       #Capturamos las nombres y los valores netos en un mismo array
       $arrayListaAdministradores = array($valueUsuarios["nombre"] => $valueReportes["id"]);
 
-      #Sumamos los netos de cada vendedor
-
+      #Sumamos los netos de cada administrador
+      
       foreach ($arrayListaAdministradores as $key => $value) {        
         
         $sumaTotalVendedores[$key] = $sumaTotalVendedores[$key]+1;

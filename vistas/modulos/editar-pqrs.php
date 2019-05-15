@@ -15,11 +15,12 @@ EDITAR PQRS
 
                     <?php
                     $item = "id";
-                    $valor = $_GET["idPQRS"];
+                    $valorRadicado = $_GET["idPQRS"];
+                    $valorCliente = $_GET["idCliente"];
 
-                    $radicado = ControladorPQRS::ctrMostrarPQRS($item, $valor);
+                    $radicado = ControladorPQRS::ctrMostrarPQRS($item, $valorRadicado);
 
-                    $cliente = ControladorClientes::ctrMostrarClientes($item, $valor);
+                    $cliente = ControladorClientes::ctrMostrarClientes($item, $valorCliente);
 
                     ?>
 
@@ -54,7 +55,7 @@ EDITAR PQRS
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label class="bmd-label-floating">Documento:</label>
-                                <input type="text" class="form-control " id="editarIdRadicador" name="editarIdRadicador" value="<?php echo $cliente["id_cliente"]; ?>" required="true" disabled>
+                                <input type="text" class="form-control " id="editarIdRadicador" name="editarIdRadicador" value="<?php echo $cliente["id_cliente"]?> " required="true" disabled>
                             </div>
                         </div>
 
@@ -157,17 +158,7 @@ EDITAR PQRS
                         </div>
                     </div>
 
-                    <!-- ENTRADA PARA ADMINSTRADOR -->
-
-                    <?php
-                    $item = "id";
-                    $valor = $_GET["idUsuario"];
-
-                    $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
-
-                    ?>
-
-                    <input type="hidden" class="form-control " id="editarAdministrador" name="editarAdministrador" value="<?php echo $usuario["id"]; ?>" readonly>
+                    <input type="hidden" class="form-control " id="editarAdministrador" name="editarAdministrador" value="<?php echo $_SESSION["id"]; ?>" readonly>
             </div>
 
             <div class="card-footer ml-auto mr-auto">

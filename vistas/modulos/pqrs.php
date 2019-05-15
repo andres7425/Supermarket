@@ -102,7 +102,7 @@
 
                                                         echo '<td>
                                                                    <div class="btn-group text-right" rowspan="1" colspan="1">
-                                                                   <button class="btn btn-warning btn-link btn-icon btn-sm btnEditarPQRS text-right"  rowspan="1" colspan="1" name="btnEditarUsuario" idPQRS="' . $value['id'] . '" idUsuario="' .$radicadoUsuario["id"]. '" >
+                                                                   <button class="btn btn-warning btn-link btn-icon btn-sm btnEditarPQRS text-right"  rowspan="1" colspan="1" name="btnEditarUsuario" idPQRS="' . $value['id'] . '" idUsuario="' .$radicadoUsuario["id"]. '"  idCliente="'.$radicadoCliente["id"].'">
                                                                    <i class="fa fa-edit"></i>
                                                                    </button>
                                                                    <button class="btn btn-danger btn-link btn-icon btn-sm btnEnviarCorreo text-right"  rowspan="1" colspan="1" name="btnEnviar" enviarPQRS="' . $value['id'] . '" enviarUsuario="' .$radicadoUsuario["id"]. '" enviarCliente="'.$radicadoCliente["id"].'"  ><i class="fa fa-inbox"></i>
