@@ -1,17 +1,18 @@
 <?php
 
-class Conexion{
+class Conexion
+{
 
-	static public function conectar(){
+	static public function conectar()
+	{
 
-		$link = new PDO("mysql:host=localhost;dbname=ubosque",
-			            "root",
-			            "");
+		$db = new PDO('mysql:host=supermarketpqrs-mysqldbserver.mysql.database.azure.com;
+		port=3306;dbname=ubosque', 
+		'andres74@supermarketpqrs-mysqldbserver', 
+		'andres_22'
+		);
+		return $db;
 
-		$link->exec("set names utf8");
-
-		return $link;
-
+		
 	}
-
 }
