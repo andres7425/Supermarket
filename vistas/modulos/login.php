@@ -1,6 +1,6 @@
 <body class="login">
     <div class="wrapper wrapper-full-page">
-        <div class="page-header login-page header-filter" filter-color="green" style="background-image: url('../../../supermarketpqrs/vistas/img/plantilla/login.jpg'); background-size: cover; background-position: top center;">
+        <div class="page-header login-page header-filter" filter-color="green" style="background-image: url('vistas/img/plantilla/login.jpg'); background-size: cover; background-position: top center;">
             <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
             <div class="container">
                 <div class="row">
