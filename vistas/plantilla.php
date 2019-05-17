@@ -113,21 +113,21 @@ CUERPO DOCUMENTO
   CONTENIDO
   =============================================*/
 
-    if (isset($_POST["ruta"])) {
+    if (isset($_GET["ruta"])) {
 
       if (
-        $_POST["ruta"] == "inicio"         ||
-        $_POST["ruta"] == "email"         ||
-        $_POST["ruta"] == "usuarios"       ||
-        $_POST["ruta"] == "cliente"      ||
-        $_POST["ruta"] == "pqrs"         ||
-        $_POST["ruta"] == "crear-usuario"  ||
-        $_POST["ruta"] == "editar-usuario" ||
-        $_POST["ruta"] == "editar-pqrs" ||
-        $_POST["ruta"] == "salir"
+        $_GET["ruta"] == "inicio"         ||
+        $_GET["ruta"] == "email"         ||
+        $_GET["ruta"] == "usuarios"       ||
+        $_GET["ruta"] == "cliente"      ||
+        $_GET["ruta"] == "pqrs"         ||
+        $_GET["ruta"] == "crear-usuario"  ||
+        $_GET["ruta"] == "editar-usuario" ||
+        $_GET["ruta"] == "editar-pqrs" ||
+        $_GET["ruta"] == "salir"
       ) {
 
-        include "vistas/modulos/" . $_POST["ruta"] . ".php";
+        include "vistas/modulos/" . $_GET["ruta"] . ".php";
 
       } else {
 
