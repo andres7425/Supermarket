@@ -127,27 +127,27 @@ CUERPO DOCUMENTO
         $_GET["ruta"] == "salir"
       ) {
 
-        include "https://supermarketpqrs.azurewebsites.net/vistas/modulos/" . $_GET["ruta"] . ".php";
+        include "/vistas/modulos/" . $_GET["ruta"] . ".php";
 
       } else {
 
-        include "https://supermarketpqrs.azurewebsites.net/vistas/modulos//404.php";
+        include "/vistas/modulos//404.php";
       }
     } else {
 
-      include "https://supermarketpqrs.azurewebsites.net/vistas/modulos//inicio.php";
+      include "/vistas/modulos//inicio.php";
     }
 
     /*=============================================
   FOOTER
   =============================================*/
 
-    include "https://supermarketpqrs.azurewebsites.net/vistas/modulos//footer.php";
+    include "/vistas/modulos//footer.php";
 
     echo '</div>';
   } else {
 
-    include "https://supermarketpqrs.azurewebsites.net/vistas/modulos//login.php";
+    include "/vistas/modulos//login.php";
   }
 
   ?>
