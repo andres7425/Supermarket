@@ -4,6 +4,6 @@ session_destroy();
 
 echo '<script>
 
-	window.location = "vistas/modulos/ingreso";
+	window.location = "ingreso";
 
 </script>';
