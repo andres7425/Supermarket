@@ -138,22 +138,22 @@ CUERPO DOCUMENTO
       include "vistas/modulos/inicio.php";
     }
 
-    /*=============================================
+  /*=============================================
   FOOTER
   =============================================*/
 
-    include "vistas/modulos//footer.php";
+    include "vistas/modulos/footer.php";
 
     echo '</div>';
   } else {
 
-    include "vistas/modulos//login.php";
+    include "vistas/modulos/login.php";
   }
 
   ?>
 
 
-  <!--=====================================
+<!--=====================================
 PLUGINS DE JAVASCRIPT
 ======================================-->
 
