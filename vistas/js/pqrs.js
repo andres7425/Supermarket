@@ -9,35 +9,6 @@ if (localStorage.getItem("capturarRango") != null) {
 	$("#daterange-btn span").html('<i class="fa fa-calendar"></i>Rango de fecha');
 }
 
-/*=============================================
-ELIMINAR PQRS
-=============================================*/
-$(".tablas").on("click", ".btnEliminarPQRS", function () {
-
-	var idpqrs = $(this).attr("idpqrs");
-
-	swal({
-		title: '¿Está seguro de borrar el radicado?',
-		text: "¡Si no lo está puede cancelar la accíón!",
-		type: 'warning',
-		showCancelButton: true,
-		confirmButtonColor: '#3085d6',
-		cancelButtonColor: '#d33',
-		cancelButtonText: 'Cancelar',
-		confirmButtonText: 'Si, borrar usuario!'
-	}).then(function (result) {
-
-		if (result.value) {
-
-			window.location = "index.php?ruta=pqrs&idRadicado=" + idpqrs;
-
-		}
-
-	})
-
-})
-
-
 
 /*=============================================
 BOTON EDITAR PQRS

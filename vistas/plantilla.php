@@ -131,11 +131,11 @@ CUERPO DOCUMENTO
 
       } else {
 
-        include "vistas/modulos//404.php";
+        include "vistas/modulos/404.php";
       }
     } else {
 
-      include "vistas/modulos//inicio.php";
+      include "vistas/modulos/inicio.php";
     }
 
     /*=============================================
